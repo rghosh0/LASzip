@@ -391,6 +391,14 @@ laszip_open_writer(
 
 /*---------------------------------------------------------------------------*/
 LASZIP_API laszip_I32
+laszip_open_stream_writer(
+       laszip_POINTER                     pointer
+       , void*                    out_stream
+       , laszip_BOOL                      compress
+);
+
+/*---------------------------------------------------------------------------*/
+LASZIP_API laszip_I32
 laszip_write_point(
     laszip_POINTER                     pointer
 );
@@ -427,6 +435,14 @@ laszip_open_reader(
     , const laszip_CHAR*               file_name
     , laszip_BOOL*                     is_compressed
 );
+    
+/*---------------------------------------------------------------------------*/
+LASZIP_API laszip_I32
+laszip_open_stream_reader(
+                          laszip_POINTER                     pointer
+                          , void*                    in_stream
+                          , laszip_BOOL*                     is_compressed
+                          );
 
 /*---------------------------------------------------------------------------*/
 LASZIP_API laszip_I32

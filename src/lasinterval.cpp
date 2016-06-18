@@ -154,7 +154,7 @@ BOOL LASinterval::add(const U32 p_index, const I32 c_index)
 // get total number of cells
 U32 LASinterval::get_number_cells() const
 {
-  return ((my_cell_hash*)cells)->size();
+  return (U32)((my_cell_hash*)cells)->size();
 }
 
 // get total number of intervals
@@ -235,7 +235,7 @@ void LASinterval::merge_intervals(U32 maximum_intervals, const BOOL verbose)
     return;
   }
 
-  U32 size = map.size();
+  U32 size = (U32)map.size();
   while (size > maximum_intervals)
   {
     map_element = map.begin();
@@ -647,7 +647,7 @@ BOOL LASinterval::write(ByteStreamOut* stream) const
     return FALSE;
   }
   // write number of cells
-  U32 number_cells = ((my_cell_hash*)cells)->size();
+  U32 number_cells = (U32)((my_cell_hash*)cells)->size();
   if (!stream->put32bitsLE((U8*)&number_cells))
   {
     fprintf(stderr,"ERROR (LASinterval): writing number of cells %d\n", number_cells);
